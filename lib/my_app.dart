@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'api.dart/api_test_homepage.dart';
 import 'home_page/home_page.dart';
 import 'login_page.dart';
 import 'app_controller.dart';
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
                 ? Brightness.dark
                 : Brightness.light,
           ),
-          initialRoute: '/home',
+          initialRoute: '/lista',
           routes: {
             '/': (context) => LoginPage(),
-            '/home': (context) => HomePage()
+            '/home': (context) => HomePage(),
+            '/lista': (context) => FilmListTest(),
           },
         );
       },

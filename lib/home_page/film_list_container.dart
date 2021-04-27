@@ -13,9 +13,11 @@ class FilmListContainer extends StatelessWidget {
       width: 10,
       height: 270,
       padding: EdgeInsets.symmetric(horizontal: 7.0),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: getFilmInformationBoxList(filmDataList),
+      child: Container(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: getFilmInformationBoxList(filmDataList),
+        ),
       ),
     );
   }

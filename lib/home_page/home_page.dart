@@ -24,17 +24,19 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       //corpo da home
-      body: ListView(
-        children: [
-          //titulo da lista de filmes
-          TitleFilmList('Os Mais Populares'),
-          //objeto - cria um novo card de filme com as informações passadas
-          FilmListContainer(filmListPopulares),
-          //Título da outra lista de filmes
-          TitleFilmList('Lançamentos'),
-          //objeto - cria um novo card de filme com as informações passadas
-          FilmListContainer(filmListCinema),
-        ],
+      body: Container(
+        child: ListView(
+          children: [
+            //titulo da lista de filmes
+            TitleFilmList('Os Mais Populares'),
+            //objeto - cria um novo card de filme com as informações passadas
+            FilmListContainer(filmListPopulares),
+            //Título da outra lista de filmes
+            TitleFilmList('Lançamentos'),
+            //objeto - cria um novo card de filme com as informações passadas
+            FilmListContainer(filmListCinema),
+          ],
+        ),
       ),
     );
   }

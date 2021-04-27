@@ -5,11 +5,13 @@ import 'package:filmes_app/app_controller.dart';
 class CustomSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Switch(
-      value: AppController.instance.isDartTheme,
-      onChanged: (value) {
-        AppController.instance.changeTheme();
-      },
+    return Container(
+      child: Switch(
+        value: AppController.instance.isDartTheme,
+        onChanged: (value) {
+          AppController.instance.changeTheme();
+        },
+      ),
     );
   }
 }
