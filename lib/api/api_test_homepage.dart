@@ -11,8 +11,10 @@ class FilmListTest extends StatefulWidget {
 
 class _FilmListTestState extends State<FilmListTest> {
   List<FilmData> filmList; //lista do tipo filmData
+  // final Uri url1 = Uri.parse(
+  //     'https://api.themoviedb.org/3/movie/popular?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1');
   final Uri url = Uri.parse(
-      'https://api.themoviedb.org/3/movie/popular?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1');
+      'https://api.themoviedb.org/3/movie/now_playing?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1');
 
   Future<List<FilmData>> getFilmsData() async {
     try {

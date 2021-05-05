@@ -38,6 +38,14 @@ class DrawerHome extends StatelessWidget {
           },
         ),
         ListTile(
+          leading: Icon(Icons.favorite),
+          title: Text('Favoritos'),
+          subtitle: Text('Filmes salvos'),
+          onTap: () {
+            print('Home');
+          },
+        ),
+        ListTile(
           leading: Icon(Icons.logout),
           title: Text('Sair'),
           subtitle: Text('Encerrar sessão'),

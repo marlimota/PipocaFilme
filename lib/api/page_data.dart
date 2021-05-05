@@ -8,7 +8,7 @@ class PageData {
 
   PageData({this.page, this.results, this.totalPages, this.totalResults});
 
-//Converte de Json para objeto (ou seja de texto para código)
+  //Converte de Json para objeto (ou seja de texto para código)
   PageData.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
@@ -21,7 +21,7 @@ class PageData {
     totalResults = json['total_results'];
   }
 
-//converte de volta para o formato json
+  //converte de volta para o formato json
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['page'] = this.page;
@@ -76,7 +76,8 @@ class FilmData {
     originalTitle = json['original_title'];
     overview = json['overview'];
     popularity = json['popularity'];
-    posterPath = json['poster_path'];
+    posterPath = "https://www.themoviedb.org/t/p/w220_and_h330_face" +
+        json['poster_path'];
     releaseDate = json['release_date'];
     title = json['title'];
     video = json['video'];
