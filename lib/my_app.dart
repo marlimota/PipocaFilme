@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'api.dart/api_test_homepage.dart';
 import 'home_page/home_page.dart';
 import 'login_page.dart';
 import 'app_controller.dart';
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'PipocaFilme',
           theme: ThemeData(
-            primaryColor: Colors.blueAccent,
+            primaryColor: Colors.blueAccent[400],
             brightness: AppController.instance.isDartTheme
                 ? Brightness.dark
                 : Brightness.light,
@@ -23,7 +22,6 @@ class MyApp extends StatelessWidget {
           routes: {
             '/': (context) => LoginPage(),
             '/home': (context) => HomePage(),
-            //'/lista': (context) => FilmListTest(),
           },
         );
       },

@@ -127,7 +127,7 @@ class FilmInformationBox extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 5,
+          height: 10,
         ),
         //titulo e data dos filmes
         Column(
@@ -136,10 +136,20 @@ class FilmInformationBox extends StatelessWidget {
               width: 130,
               child: Text(
                 title,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
-            Container(width: 130, child: Text(subtitle)),
+            Container(
+                width: 130,
+                child: Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                )),
           ],
         ),
       ],

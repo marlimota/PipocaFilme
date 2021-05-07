@@ -17,7 +17,7 @@ class TitleFilmList extends StatelessWidget {
           text,
           textAlign: TextAlign.start,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
             color: Colors.pink.shade700,
           ),
