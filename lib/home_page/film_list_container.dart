@@ -1,5 +1,5 @@
+import 'package:filmes_app/models/page_data.dart';
 import 'package:flutter/material.dart';
-import 'package:filmes_app/api/page_data.dart';
 import 'film_information_box.dart';
 
 class FilmListContainer extends StatelessWidget {
@@ -11,7 +11,7 @@ class FilmListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //width: 12,
-      height: 320,
+      height: 280,
       //padding: EdgeInsets.symmetric(horizontal: 7.0),
       child: Container(
         child: ListView.builder(

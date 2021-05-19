@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:filmes_app/api/page_data.dart';
+import 'package:filmes_app/models/page_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';

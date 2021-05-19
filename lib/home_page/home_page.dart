@@ -1,7 +1,8 @@
-import 'package:filmes_app/api/page_data.dart';
 import 'package:filmes_app/bloc/bloc_popular/film_popular_bloc.dart';
 import 'package:filmes_app/bloc/bloc_release/film_release_bloc.dart';
 import 'package:filmes_app/home_page/film_list_container.dart';
+import 'package:filmes_app/models/page_data.dart';
+import 'package:filmes_app/repositories/films_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'layouts_page/layouts_page.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    //bloc.fetchAllMovies();
     return Scaffold(
       //Barra Lateral
       drawer: Drawer(child: DrawerHome()),
@@ -34,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           BlocProvider(
             //Definição é feita de acordo com o Popular Cubit pois existe mais de um cubit
             //cria uma instancia do cubit que gerencia a lista de filmes populares
-            create: (context) => FilmPopularBloc(),
+            create: (context) => FilmPopularBloc(MovieRepository()),
             //bloc consumer:possui opções de listener(apenas notifica caso aconteça mudança de estado) e builder(constrói com a mudança de estado) no mesmo Widget
             child: BlocConsumer<FilmPopularBloc, FilmPopularState>(
                 //apenas escuta as mudanças do Cubit sem construir um widget
@@ -69,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           TitleFilmList('Lançamentos'),
           //objeto - cria um novo card de filme com as informações passadas
           BlocProvider(
-            create: (context) => FilmReleaseBloc(),
+            create: (context) => FilmReleaseBloc(MovieRepository()),
             child: BlocConsumer<FilmReleaseBloc, FilmReleaseState>(
                 listener: (context, state) {
               if (state is FilmReleaseError) {
@@ -145,12 +147,10 @@ Widget buildInitial() {
 }
 
 Widget buildLoading() {
-  return Padding(
-    padding: const EdgeInsets.all(40.0),
-    child: LinearProgressIndicator(
+  return Center(
+    child: CircularProgressIndicator(
       backgroundColor: Colors.pink,
       valueColor: AlwaysStoppedAnimation(Colors.blue),
-      minHeight: 10,
     ),
   );
 }

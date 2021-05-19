@@ -1,3 +1,4 @@
+import 'package:filmes_app/home_page/layouts_page/app_InfinitySingleChildScrollView.dart';
 import 'package:flutter/material.dart';
 
 //coluna de cada filme
@@ -11,26 +12,26 @@ class FilmInformationBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Stack(
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            value: 0.75,
-            backgroundColor: Colors.blueAccent,
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
-          ),
-        ),
-        Center(
-          child: Text(
-            '75%',
-            //style: AppTextStyles.heading,
-          ),
-        ),
-      ],
-    );
+    // Stack(
+    //   children: [
+    //     Container(
+    //       width: 20,
+    //       height: 20,
+    //       child: CircularProgressIndicator(
+    //         strokeWidth: 2,
+    //         value: 0.75,
+    //         backgroundColor: Colors.blueAccent,
+    //         valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+    //       ),
+    //     ),
+    //     Center(
+    //       child: Text(
+    //         '75%',
+    //         //style: AppTextStyles.heading,
+    //       ),
+    //     ),
+    //   ],
+    // );
     return Column(
       children: [
         Stack(
@@ -126,22 +127,20 @@ class FilmInformationBox extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
         //titulo e data dos filmes
         Column(
           children: [
             Container(
               width: 130,
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
+              child: InfinitySingleChildScrollView(
+                  text: title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  )),
             ),
+            SizedBox(height: 5),
             Container(
                 width: 130,
                 child: Text(
