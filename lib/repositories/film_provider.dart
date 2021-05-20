@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:filmes_app/models/page_data.dart';
 import 'package:http/http.dart' as http;
 
