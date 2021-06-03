@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:filmes_app/app_controller.dart';
 
@@ -20,40 +22,48 @@ class CustomSwitch extends StatelessWidget {
 class DrawerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        UserAccountsDrawerHeader(
-          currentAccountPicture: ClipOval(
-            child: Image.asset('assets/images/foto1.jpg'),
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/bc_home.png"),
+            fit: BoxFit.cover,
           ),
-          accountName: Text('Marli Mota'),
-          accountEmail: Text('marli@mota.com'),
         ),
-        ListTile(
-          leading: Icon(Icons.home),
-          title: Text('Inicio'),
-          subtitle: Text('Página inicial'),
-          onTap: () {
-            print('Home');
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.favorite),
-          title: Text('Favoritos'),
-          subtitle: Text('Filmes salvos'),
-          onTap: () {
-            print('Home');
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.logout),
-          title: Text('Sair'),
-          subtitle: Text('Encerrar sessão'),
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/');
-          },
-        )
-      ],
+      child: Column(
+        children: [
+          UserAccountsDrawerHeader(
+            currentAccountPicture: ClipOval(
+              child: Image.asset('assets/images/foto1.jpg'),
+            ),
+            accountName: Text('Marli Mota'),
+            accountEmail: Text('marli@mota.com'),
+          ),
+          ListTile(
+            leading: Icon(Icons.home, color: Colors.teal),
+            title: Text('Inicio', style: TextStyle(color: Colors.teal[600]),),
+            subtitle: Text('Página inicial'),
+            onTap: () {
+              print('Home');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.favorite,color: Colors.teal),
+            title: Text('Favoritos', style: TextStyle(color: Colors.teal[600]),),
+            subtitle: Text('Filmes salvos'),
+            onTap: () {
+              print('Home');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout,color: Colors.teal),
+            title: Text('Sair', style: TextStyle(color: Colors.teal[600]),),
+            subtitle: Text('Encerrar sessão'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/');
+            },
+          )
+        ],
+      ),
     );
   }
 }

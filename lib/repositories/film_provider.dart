@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:filmes_app/models/page_data.dart';
 import 'package:http/http.dart' as http;
-
+ 
 class MoviesApiProvider {
   final String urlPopular =
       'https://api.themoviedb.org/3/movie/popular?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1';

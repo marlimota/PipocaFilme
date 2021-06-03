@@ -7,7 +7,7 @@ class MovieRepository {
   Future<List<FilmData>> getPopularFilmList() =>
       moviesApiProvider.getPopularFilmList();
   Future<List<FilmData>> getReleaseFilmList() =>
-      moviesApiProvider.getReleaseFilmList();
+      moviesApiProvider.getReleaseFilmList(); 
 }
 
 // import 'package:dio/dio.dart';

@@ -6,7 +6,7 @@ import 'package:filmes_app/models/page_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 //import 'package:http/http.dart' as http;
-part 'film_release_event.dart';
+part 'film_release_event.dart'; 
 part 'film_release_state.dart';
 
 class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {

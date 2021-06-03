@@ -7,9 +7,9 @@ class FilmListContainer extends StatelessWidget {
 
   const FilmListContainer({Key key, this.filmList}) : super(key: key);
 
-  @override
+  @override 
   Widget build(BuildContext context) {
-    return Container(
+    return Container( 
       //width: 12,
       height: 280,
       //padding: EdgeInsets.symmetric(horizontal: 7.0),

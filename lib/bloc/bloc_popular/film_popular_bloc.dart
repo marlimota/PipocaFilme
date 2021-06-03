@@ -6,7 +6,7 @@ import 'package:filmes_app/models/page_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 //import 'package:http/http.dart' as http;
-part 'film_popular_event.dart';
+part 'film_popular_event.dart'; 
 part 'film_popular_state.dart';
 
 class FilmPopularBloc extends Bloc<FilmPopularEvent, FilmPopularState> {

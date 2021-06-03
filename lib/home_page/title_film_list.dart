@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class TitleFilmList extends StatelessWidget {
   TitleFilmList(this.text);
 
-  final text;
+  final text; 
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,14 @@ class TitleFilmList extends StatelessWidget {
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Colors.pink.shade700,
+            color: Colors.tealAccent[700],
+            shadows: [
+              Shadow(
+                blurRadius: 10.0,
+                color: Colors.black26,
+                offset: Offset(5.0, 5.0),
+              ),
+            ],
           ),
         ),
       ),

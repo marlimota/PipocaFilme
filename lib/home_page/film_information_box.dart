@@ -1,5 +1,6 @@
 import 'package:filmes_app/home_page/layouts_page/app_InfinitySingleChildScrollView.dart';
 import 'package:flutter/material.dart';
+import 'package:tuple/tuple.dart';
 
 //coluna de cada filme
 class FilmInformationBox extends StatelessWidget {
@@ -37,9 +38,9 @@ class FilmInformationBox extends StatelessWidget {
         Stack(
           children: <Widget>[
             Container(
-              height: 200,
-              width: 130,
-              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              height: 210,
+              width: 145,
+              margin: EdgeInsets.symmetric(horizontal: 11.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
                 color: Colors.transparent,
@@ -55,22 +56,14 @@ class FilmInformationBox extends StatelessWidget {
               ),
             ),
             Container(
-              width: 140,
-              height: 200,
+              width: 155,
               child: Align(
                 alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Icon(
-                    Icons.pending_sharp,
-                    color: Color.fromARGB(180, 138, 140, 146),
-                    size: 30,
-                  ),
-                ),
+                child: InformationMenuBox(),
               ),
             ),
             Container(
-              height: 215,
+              height: 225,
               margin: EdgeInsets.symmetric(horizontal: 22.0),
               alignment: Alignment.bottomLeft,
               child: Positioned(
@@ -79,8 +72,8 @@ class FilmInformationBox extends StatelessWidget {
                     ClipOval(
                       child: Container(
                         //color: Color.fromARGB(180, 82, 84, 92),
-                        width: 32,
-                        height: 32,
+                        width: 33,
+                        height: 33,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(180, 82, 84, 92),
                           boxShadow: [
@@ -97,8 +90,8 @@ class FilmInformationBox extends StatelessWidget {
                           value: score * 0.1,
                           //ler da api
                           backgroundColor: Colors.blueGrey[300],
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.pink[400]),
+                          valueColor: getScoreColor(score),
+                          //AlwaysStoppedAnimation<Color>(Colors.pink[400]),
                         ),
                       ),
                     ),
@@ -145,13 +138,78 @@ class FilmInformationBox extends StatelessWidget {
                 width: 130,
                 child: Text(
                   subtitle,
-                  style: TextStyle(
-                    fontSize: 15,
-                  ),
+                  style: TextStyle(fontSize: 15),
                 )),
           ],
         ),
       ],
     );
+  }
+}
+
+Animation<Color> getScoreColor(num score) {
+  //score = 10;
+  return AlwaysStoppedAnimation<Color>(
+      HSVColor.fromAHSV(1, (score * 10.0) + 10, 1, 0.75).toColor());
+}
+
+class InformationMenuBox extends StatelessWidget {
+  const InformationMenuBox({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton<Tuple2<IconData, String>>(
+      icon: Icon(
+        Icons.pending_sharp,
+        color: Color.fromARGB(180, 138, 140, 146),
+        size: 36,
+      ),
+      onSelected: choiceAction,
+      color: Color.fromARGB(240,237,238,245),
+      itemBuilder: (BuildContext context) {
+        return Constants.choices.map((Tuple2<IconData, String> choice) {
+          return PopupMenuItem<Tuple2<IconData, String>>(
+              value: choice,
+              child: Row(
+                children: [
+                  Icon(
+                    choice.item1,
+                    color: Colors.blueGrey,
+                  ),
+                  Text(choice.item2),
+                ],
+              ));
+        }).toList();
+      },
+    );
+    // return IconButton(
+    //   icon: const Icon(Icons.pending_sharp),
+    //   color: Color.fromARGB(180, 138, 140, 146),
+    //   iconSize: 36,
+    //   onPressed: () {},
+    // );
+  }
+}
+
+class Constants {
+  static const Tuple2<IconData, String> FirstItem =
+      Tuple2<IconData, String>(Icons.favorite, ' Favorito');
+  static const Tuple2<IconData, String> SecondItem =
+      Tuple2<IconData, String>(Icons.info, ' Informação');
+
+  static const List<Tuple2<IconData, String>> choices =
+      <Tuple2<IconData, String>>[
+    FirstItem,
+    SecondItem,
+  ];
+}
+
+void choiceAction(Tuple2<IconData, String> choice) {
+  if (choice == Constants.FirstItem) {
+    print('Favorito');
+  } else if (choice == Constants.SecondItem) {
+    print('Informação');
   }
 }
