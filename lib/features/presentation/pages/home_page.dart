@@ -1,12 +1,12 @@
-import 'package:filmes_app/bloc/bloc_popular/film_popular_bloc.dart';
-import 'package:filmes_app/bloc/bloc_release/film_release_bloc.dart';
-import 'package:filmes_app/home_page/film_list_container.dart';
-import 'package:filmes_app/models/page_data.dart';
-import 'package:filmes_app/repositories/films_repository.dart';
+import 'package:filmes_app/features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
+import 'package:filmes_app/features/presentation/bloc/bloc_release/film_release_bloc.dart';
+import 'package:filmes_app/features/presentation/widgets/film_list_container.dart';
+import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'layouts_page/layouts_page.dart';
-import 'title_film_list.dart';
+import '../widgets/layouts_page.dart';
+import '../widgets/title_film_list.dart';
 
 class HomePage extends StatefulWidget {
   @override

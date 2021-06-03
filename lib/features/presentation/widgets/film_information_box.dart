@@ -1,4 +1,4 @@
-import 'package:filmes_app/home_page/layouts_page/app_InfinitySingleChildScrollView.dart';
+import 'package:filmes_app/features/presentation/widgets/app_InfinitySingleChildScrollView.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
 

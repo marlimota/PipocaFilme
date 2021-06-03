@@ -1,8 +1,8 @@
 import 'dart:async';
 //import 'dart:convert';
-import 'package:filmes_app/repositories/films_repository.dart';
+import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 import 'package:bloc/bloc.dart';
-import 'package:filmes_app/models/page_data.dart';
+import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 //import 'package:http/http.dart' as http;

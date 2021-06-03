@@ -1,10 +1,9 @@
-import 'package:filmes_app/models/page_data.dart';
-import 'package:filmes_app/repositories/film_provider.dart';
+import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/domain/usecases/film_provider.dart';
 
-class MovieRepository {
+abstract class MovieRepository {
   final moviesApiProvider = MoviesApiProvider();
-
-  Future<List<FilmData>> getPopularFilmList() =>
+  Future<List<FilmData>> getPopularFilmList() => 
       moviesApiProvider.getPopularFilmList();
   Future<List<FilmData>> getReleaseFilmList() =>
       moviesApiProvider.getReleaseFilmList(); 

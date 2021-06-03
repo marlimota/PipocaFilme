@@ -1,6 +1,10 @@
-part of 'film_popular_cubit.dart';
+import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:flutter/foundation.dart';
+//part of '../film_popular_cubit.dart';
 
 @immutable
+
+
 abstract class FilmPopularState {
   const FilmPopularState();
 }

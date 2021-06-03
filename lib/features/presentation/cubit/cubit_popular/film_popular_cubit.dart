@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:filmes_app/models/page_data.dart';
-import 'package:filmes_app/repositories/films_repository.dart';
-import 'package:flutter/foundation.dart';
+import 'package:filmes_app/features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
+import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 
-import 'package:meta/meta.dart';
-
-part 'film_popular_state.dart';
+//part 'film_popular_state.dart';
 
 class FilmPopularCubit extends Cubit<FilmPopularState> {
   final MovieRepository _repository;
