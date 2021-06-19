@@ -1,12 +1,11 @@
+import 'package:dartz/dartz.dart';
+import 'package:filmes_app/core/error/failure.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
-import 'package:filmes_app/features/domain/usecases/film_provider.dart';
 
 abstract class MovieRepository {
-  final moviesApiProvider = MoviesApiProvider();
-  Future<List<FilmData>> getPopularFilmList() => 
-      moviesApiProvider.getPopularFilmList();
-  Future<List<FilmData>> getReleaseFilmList() =>
-      moviesApiProvider.getReleaseFilmList(); 
+  //final moviesApiProvider = MoviesApiProvider();
+ Future<Either<Failure, FilmData>> getPopularFilmList();
+ Future<Either<Failure, FilmData>> getReleaseFilmList();
 }
 
 // import 'package:dio/dio.dart';

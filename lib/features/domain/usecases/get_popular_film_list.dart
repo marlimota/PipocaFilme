@@ -11,7 +11,6 @@ class GetPopularFilmList implements UseCase<FilmData, NoParams> {
 
   @override
   Future<Either<Failure, FilmData>> call(NoParams params) async {
-    //TODO está sendo construída a estrutura
-    //return await repository.getPopularFilmList();
+    return await repository.getPopularFilmList();
   }
 }

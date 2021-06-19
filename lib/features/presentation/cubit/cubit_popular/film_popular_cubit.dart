@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:filmes_app/features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:filmes_app/features/domain/repositories/films_repository.dart';
+import 'package:filmes_app/features/presentation/cubit/cubit_popular/film_popular_state.dart';
 
 //part 'film_popular_state.dart';
 
@@ -13,8 +14,8 @@ class FilmPopularCubit extends Cubit<FilmPopularState> {
     //troca o estado do initial para o loading
     emit(FilmPopularLoading());
     //troca de loading para loaded com a informação recebida
-    List<FilmData> filmList = await _repository.getPopularFilmList();
-    emit(FilmPopularLoaded(filmList)); //lista de filmes no results
+    //List<FilmData> filmList = await _repository.getPopularFilmList;
+    //emit(FilmPopularLoaded(filmList)); //lista de filmes no results
   }
   //   try {
 
