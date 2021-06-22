@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_page/home_page.dart';
-import 'login_page.dart';
+import 'features/presentation/pages/home_page.dart';
+import 'features/presentation/pages/login_page.dart';
 import 'app_controller.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'PipocaFilme',
           theme: ThemeData(
-            primaryColor: Colors.blueAccent[400],
+            primaryColor: Colors.pinkAccent[700],
             brightness: AppController.instance.isDartTheme
                 ? Brightness.dark
                 : Brightness.light,

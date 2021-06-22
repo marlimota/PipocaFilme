@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'page_data.dart';
+import '../features/domain/entities/page_data.dart';
 
 class FilmListTest extends StatefulWidget {
   @override
