@@ -4,8 +4,8 @@ import 'package:filmes_app/features/domain/entities/page_data.dart';
 
 abstract class MovieRepository {
   //final moviesApiProvider = MoviesApiProvider();
- Future<Either<Failure, FilmData>> getPopularFilmList();
- Future<Either<Failure, FilmData>> getReleaseFilmList();
+ Future<Either<Failure, List<FilmData>>> getPopularFilmList();
+ Future<Either<Failure, List<FilmData>>> getReleaseFilmList();
 }
 
 // import 'package:dio/dio.dart';

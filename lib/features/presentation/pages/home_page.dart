@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //bloc.fetchAllMovies();
-    context.watch<FilmPopularBloc>()..add(FetchPopularFilmsData());
+
     return Scaffold(
       //Barra Lateral
       drawer: Drawer(child: DrawerHome()),
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 if (state is FilmPopularInitial) {
                   //Faz uma referência "facilitada" ao cubit responsável por gerenciar essa list
                   //chama a função fetchFilmsData do FilmPopularCubit
-                  context.watch<FilmPopularBloc>()..add(FetchPopularFilmsData());
+                  context.watch<FilmPopularBloc>().add(FetchPopularFilmsData());
                   return buildInitial();
                 } else if (state is FilmPopularLoading) {
                   return buildLoading();
@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
             TitleFilmList('Lançamentos'),
             //objeto - cria um novo card de filme com as informações passadas
             BlocProvider(
-              create: (context) => sl<FilmReleaseBloc>(),
-              child:
-                  BlocConsumer<FilmReleaseBloc, FilmReleaseState>(listener: (context, state) {
+              create: (_) => sl<FilmReleaseBloc>(),
+              child: BlocConsumer<FilmReleaseBloc, FilmReleaseState>(
+                  listener: (context, state) {
                 if (state is FilmReleaseError) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 }
               }, builder: (context, state) {
                 if (state is FilmReleaseInitial) {
-                  context.watch<FilmReleaseBloc>()..add(FetchReleaseFilmsData());
+                  context.watch<FilmReleaseBloc>().add(FetchReleaseFilmsData());
                   return buildInitial();
                 } else if (state is FilmReleaseLoading) {
                   return buildLoading();

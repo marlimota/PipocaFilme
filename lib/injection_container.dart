@@ -3,7 +3,7 @@ import 'package:filmes_app/core/platform/network_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
-import 'features/data/datasources/films_local_data_source.dart';
+//import 'features/data/datasources/films_local_data_source.dart';
 import 'features/data/datasources/films_remote_data_source.dart';
 import 'features/data/repositories/films_repository_impl.dart';
 import 'features/domain/repositories/films_repository.dart';
@@ -22,7 +22,7 @@ Future<void> init() async {
       getPopularFilmList: sl(),
     ),
   );
-    sl.registerFactory(
+  sl.registerFactory(
     () => FilmReleaseBloc(
       getReleaseFilmList: sl(),
     ),
@@ -34,7 +34,7 @@ Future<void> init() async {
   sl.registerLazySingleton<MovieRepository>(
     () => FilmsRepositoryImpl(
       remoteDataSource: sl(),
-      localDataSource: sl(),
+      //localDataSource: sl(),
       networkInfo: sl(),
     ),
   );
@@ -42,9 +42,9 @@ Future<void> init() async {
   sl.registerLazySingleton<FilmsRemoteDataSource>(
     () => FilmsRemoteDataSourceImpl(client: sl()),
   );
-  sl.registerLazySingleton<FilmLocalDataSource>(
-    () => FilmLocalDataSourceImpl(sharedPreferences: sl()),
-  );
+  // sl.registerLazySingleton<FilmLocalDataSource>(
+  //   () => FilmLocalDataSourceImpl(sharedPreferences: sl()),
+  // );
 //! Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
   //! External

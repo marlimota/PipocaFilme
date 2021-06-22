@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'PipocaFilme',
           theme: ThemeData(
-            primaryColor: Colors.pink[600],
+            primaryColor: Colors.pinkAccent[700],
             brightness: AppController.instance.isDartTheme
                 ? Brightness.dark
                 : Brightness.light,

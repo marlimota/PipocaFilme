@@ -25,6 +25,7 @@ class _InfinitySingleChildScrollViewState
     super.initState();
 
     _scrollController.addListener(() {
+      // ignore: invalid_use_of_protected_member
       if (_scrollController.positions.isNotEmpty &&
           _scrollController.position.pixels <=
               _scrollController.position.minScrollExtent) {
@@ -34,6 +35,7 @@ class _InfinitySingleChildScrollViewState
       double scrollLenght = _scrollController.position.extentAfter +
           _scrollController.position.extentInside +
           _scrollController.position.extentBefore;
+      // ignore: invalid_use_of_protected_member
       if (_scrollController.positions.isNotEmpty &&
           _scrollController.position.pixels >= scrollLenght) {
         animateToStart();
@@ -45,6 +47,7 @@ class _InfinitySingleChildScrollViewState
 
   void animateToEnd() async {
     await Future.delayed(Duration(seconds: 1));
+    // ignore: invalid_use_of_protected_member
     if (_scrollController.positions.isNotEmpty &&
         _scrollController.position.extentAfter > 0) {
       double scrollLenght = _scrollController.position.extentAfter +

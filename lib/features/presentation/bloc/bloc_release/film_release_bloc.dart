@@ -6,7 +6,7 @@ import 'package:filmes_app/core/usecases/usecase.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:filmes_app/features/domain/usecases/get_release_film_list.dart';
-import 'package:filmes_app/features/presentation/cubit/cubit_releases/film_release_cubit.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 
@@ -21,10 +21,7 @@ const String INVALID_INPUT_FAILURE_MESSAGE =
 class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {
   final GetReleaseFilmList getReleaseFilmList;
 
-  FilmReleaseBloc({this.getReleaseFilmList}) : super();
-
-  @override
-  FilmReleaseState get initialState => FilmReleaseInitial();
+  FilmReleaseBloc({this.getReleaseFilmList}) : super(FilmReleaseInitial());
 
   @override
   Stream<FilmReleaseState> mapEventToState(FilmReleaseEvent event) async* {
@@ -57,11 +54,11 @@ class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {
 }
 
 Stream<FilmReleaseState> _eitherLoadedOrErrorState(
-  Either<Failure, FilmData> either,
+  Either<Failure, List<FilmData>> either,
 ) async* {
   yield either.fold(
     (failure) => FilmReleaseError(message: _mapFailureToMessage(failure)),
-    (filmList) => FilmReleaseLoaded(),
+    (filmList) => FilmReleaseLoaded(filmList: filmList),
   );
 }
 

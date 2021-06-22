@@ -19,9 +19,9 @@ const String INVALID_INPUT_FAILURE_MESSAGE =
 class FilmPopularBloc extends Bloc<FilmPopularEvent, FilmPopularState> {
   final GetPopularFilmList getPopularFilmList;
 
-  FilmPopularState initialState = FilmPopularInitial();
+  //FilmPopularState initialState = FilmPopularInitial();
 
-  FilmPopularBloc({this.getPopularFilmList}) : super(initialState);
+  FilmPopularBloc({this.getPopularFilmList}) : super(FilmPopularInitial());
 
   @override
   Stream<FilmPopularState> mapEventToState(FilmPopularEvent event) async* {
@@ -54,11 +54,11 @@ class FilmPopularBloc extends Bloc<FilmPopularEvent, FilmPopularState> {
 }
 
 Stream<FilmPopularState> _eitherLoadedOrErrorState(
-  Either<Failure, FilmData> either,
+  Either<Failure, List<FilmData>> either,
 ) async* {
   yield either.fold(
     (failure) => FilmPopularError(message: _mapFailureToMessage(failure)),
-    (filmList) => FilmPopularLoaded(),
+    (filmList) => FilmPopularLoaded(filmList: filmList),
   );
 }
 

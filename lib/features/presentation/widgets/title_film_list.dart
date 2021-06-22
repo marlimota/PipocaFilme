@@ -19,11 +19,11 @@ class TitleFilmList extends StatelessWidget {
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Colors.tealAccent[700],
+            color: Colors.teal,
             shadows: [
               Shadow(
                 blurRadius: 10.0,
-                color: Colors.black26,
+                color: Colors.black38,
                 offset: Offset(5.0, 5.0),
               ),
             ],

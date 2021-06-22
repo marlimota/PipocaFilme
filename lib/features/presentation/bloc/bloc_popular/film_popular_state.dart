@@ -18,7 +18,7 @@ class FilmPopularLoading extends FilmPopularState {
 class FilmPopularLoaded extends FilmPopularState {
   final List<FilmData> filmList;
 
-  FilmPopularLoaded({this.filmList});
+  FilmPopularLoaded({this.filmList}) : super([filmList]);
 
 //sobreescreve a operação de igualdade
 //Permite a atualização do estado - pois naturalmente com a operação de igualdade, isso não é possível
@@ -40,7 +40,7 @@ class FilmPopularLoaded extends FilmPopularState {
 class FilmPopularError extends FilmPopularState {
   final String message;
 
-  FilmPopularError({this.message});
+  FilmPopularError({this.message}) : super([message]);
 
   // @override
   // bool operator ==(Object other) {
