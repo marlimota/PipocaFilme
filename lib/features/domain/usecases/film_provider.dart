@@ -1,11 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
-<<<<<<< HEAD:lib/repositories/film_provider.dart
-import 'package:filmes_app/models/page_data.dart';
-=======
 
 import 'package:filmes_app/features/domain/entities/page_data.dart';
->>>>>>> develop:lib/features/domain/usecases/film_provider.dart
 import 'package:http/http.dart' as http;
   
 class MoviesApiProvider {
