@@ -16,8 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    //bloc.fetchAllMovies();
-
     return Scaffold(
       //Barra Lateral
       drawer: Drawer(child: DrawerHome()),
@@ -28,17 +26,20 @@ class _HomePageState extends State<HomePage> {
           CustomSwitch(),
         ],
       ),
+      //todo o corpo do aplicativo - conteúdo
       body: Container(
+        //imagem de fundo
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bc_home.png"),
+            image: AssetImage("assets/images/bc_home_dd.png"),
             fit: BoxFit.cover,
           ),
         ),
+        //contéudo - duas listas horizontais e seus respectivos títulos
         child: ListView(
           children: [
             SizedBox(height: 8),
-            //titulo da lista de filmes
+            //titulo da lista de filmes - populares
             TitleFilmList('Os Mais Populares'),
             //Define o que será feito de acordo com o estado ou mudança de estado
             BlocProvider(
@@ -69,13 +70,13 @@ class _HomePageState extends State<HomePage> {
                   return buildLoading();
                 } else if (state is FilmPopularLoaded) {
                   return buildLoaded(state.filmList);
-                } else {
+                } else { 
                   return buildLoading();
                 }
               }),
             ),
             SizedBox(height: 10),
-            //Título da outra lista de filmes
+            //Título da outra lista de filmes - lançamentos
             TitleFilmList('Lançamentos'),
             //objeto - cria um novo card de filme com as informações passadas
             BlocProvider(
@@ -115,8 +116,8 @@ Widget buildInitial() {
   return Padding(
     padding: const EdgeInsets.all(40.0),
     child: LinearProgressIndicator(
-      backgroundColor: Colors.pink,
-      valueColor: AlwaysStoppedAnimation(Colors.blue),
+      backgroundColor: Colors.red,
+      valueColor: AlwaysStoppedAnimation(Colors.yellow),
       minHeight: 10,
     ),
   );
@@ -125,8 +126,8 @@ Widget buildInitial() {
 Widget buildLoading() {
   return Center(
     child: CircularProgressIndicator(
-      backgroundColor: Colors.pinkAccent[400],
-      valueColor: AlwaysStoppedAnimation(Colors.tealAccent[700]),
+      backgroundColor: Colors.red[900],
+      valueColor: AlwaysStoppedAnimation(Colors.yellow),
     ),
   );
 }

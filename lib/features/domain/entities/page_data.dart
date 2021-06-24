@@ -37,20 +37,20 @@ class PageData {
 
 //Define os atributos do objeto filme
 class FilmData extends Equatable {
-   bool adult;
-   String backdropPath;
-   List<int> genreIds;
-   int id;
-   String originalLanguage;
-   String originalTitle;
-   String overview;
-   num popularity;
-   String posterPath;
-   String releaseDate;
-   String title;
-   bool video;
-   num voteAverage;
-   int voteCount;
+  bool adult;
+  String backdropPath;
+  List<int> genreIds;
+  int id;
+  String originalLanguage;
+  String originalTitle;
+  String overview;
+  num popularity;
+  String posterPath;
+  String releaseDate;
+  String title;
+  bool video;
+  num voteAverage;
+  int voteCount;
 
   FilmData(
       {this.adult,
@@ -97,7 +97,8 @@ class FilmData extends Equatable {
     popularity = json['popularity'];
     posterPath = "https://www.themoviedb.org/t/p/w220_and_h330_face" +
         json['poster_path'];
-    releaseDate = json['release_date'];
+    releaseDate =
+        json['release_date'] != null ? json['release_date'] : "undated";
     title = json['title'];
     video = json['video'];
     voteAverage = json['vote_average'];

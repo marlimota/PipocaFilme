@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:filmes_app/features/presentation/pages/home_page.dart';
+import 'package:filmes_app/features/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:filmes_app/app_controller.dart';
 
@@ -25,7 +27,7 @@ class DrawerHome extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bc_home.png"),
+            image: AssetImage("assets/images/bc_home_dd.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -39,27 +41,27 @@ class DrawerHome extends StatelessWidget {
             accountEmail: Text('marli@mota.com'),
           ),
           ListTile(
-            leading: Icon(Icons.home, color: Colors.teal),
-            title: Text('Inicio', style: TextStyle(color: Colors.teal[600]),),
+            leading: Icon(Icons.home, color: Colors.red),
+            title: Text('Inicio', style: TextStyle(color: Colors.red),),
             subtitle: Text('Página inicial'),
             onTap: () {
-              print('Home');
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite,color: Colors.teal),
-            title: Text('Favoritos', style: TextStyle(color: Colors.teal[600]),),
+            leading: Icon(Icons.favorite,color: Colors.red),
+            title: Text('Favoritos', style: TextStyle(color: Colors.red),),
             subtitle: Text('Filmes salvos'),
             onTap: () {
               print('Home');
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout,color: Colors.teal),
-            title: Text('Sair', style: TextStyle(color: Colors.teal[600]),),
+            leading: Icon(Icons.logout,color: Colors.red,),
+            title: Text('Sair', style: TextStyle(color: Colors.red),),
             subtitle: Text('Encerrar sessão'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
             },
           )
         ],

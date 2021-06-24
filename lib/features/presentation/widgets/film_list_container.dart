@@ -7,22 +7,22 @@ class FilmListContainer extends StatelessWidget {
 
   const FilmListContainer({Key key, this.filmList}) : super(key: key);
 
-  @override 
+  @override
   Widget build(BuildContext context) {
-    return Container( 
-      //width: 12,
+    return Container(
       height: 280,
-      //padding: EdgeInsets.symmetric(horizontal: 7.0),
       child: Container(
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: filmList.length,
             itemBuilder: (BuildContext context, int index) {
               return new FilmInformationBox(
-                  filmList[index].posterPath,
-                  filmList[index].title,
-                  filmList[index].releaseDate,
-                  filmList[index].voteAverage);
+                filmData: filmList[index],
+              );
+              // filmList[index].posterPath,
+              // filmList[index].title,
+              // filmList[index].releaseDate,
+              // filmList[index].voteAverage);
             }),
       ),
     );
