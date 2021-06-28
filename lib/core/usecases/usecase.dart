@@ -6,4 +6,7 @@ abstract class UseCase<Type, NoParams> {
   Future<Either<Failure, Type>> call(NoParams params);
 }
 
-class NoParams extends Equatable {}
+class NoParams extends Equatable {
+  @override
+  List<Object> get props => throw UnimplementedError();
+}

@@ -1,9 +1,9 @@
-import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/data/models/films_model.dart';
 import 'package:flutter/material.dart';
 import 'film_information_box.dart';
 
 class FilmListContainer extends StatelessWidget {
-  final List<FilmData> filmList;
+  final List<FilmModel> filmList;
 
   const FilmListContainer({Key key, this.filmList}) : super(key: key);
 

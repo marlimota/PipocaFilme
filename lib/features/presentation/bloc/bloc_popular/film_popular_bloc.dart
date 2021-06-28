@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:filmes_app/core/error/failure.dart';
 import 'package:filmes_app/core/usecases/usecase.dart';
-import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/data/models/films_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:filmes_app/features/domain/usecases/get_popular_film_list.dart';
 import 'package:flutter/foundation.dart';
@@ -54,7 +54,7 @@ class FilmPopularBloc extends Bloc<FilmPopularEvent, FilmPopularState> {
 }
 
 Stream<FilmPopularState> _eitherLoadedOrErrorState(
-  Either<Failure, List<FilmData>> either,
+  Either<Failure, List<FilmModel>> either,
 ) async* {
   yield either.fold(
     (failure) => FilmPopularError(message: _mapFailureToMessage(failure)),

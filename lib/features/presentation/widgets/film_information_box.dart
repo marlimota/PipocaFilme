@@ -1,12 +1,12 @@
-import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/data/models/films_model.dart';
 import 'package:filmes_app/features/presentation/pages/details_page.dart';
 import 'package:filmes_app/features/presentation/widgets/app_InfinitySingleChildScrollView.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
-
+ 
 //coluna de cada filme
 class FilmInformationBox extends StatelessWidget {
-  final FilmData filmData;
+  final FilmModel filmData;
 
   const FilmInformationBox({Key key, this.filmData}) : super(key: key);
 
@@ -24,7 +24,7 @@ class FilmInformationBox extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.0),
                 color: Colors.transparent,
                 image: DecorationImage(
-                    image: NetworkImage(filmData.posterPath),
+                    image: NetworkImage(filmData.posterPath), 
                     fit: BoxFit.cover),
                 boxShadow: [
                   BoxShadow(
@@ -36,60 +36,51 @@ class FilmInformationBox extends StatelessWidget {
               ),
             ),
             Container(
-              width: 155,
-              child: Align(
-                alignment: Alignment.topRight,
-                child: InformationMenuBox(),
+              child: Positioned.fill(
+                child: Align(
+                  alignment: Alignment(0.8,-1.0),
+                  child: InformationMenuBox(),
+                ),
               ),
             ),
             Container(
-              height: 225,
-              margin: EdgeInsets.symmetric(horizontal: 22.0),
-              alignment: Alignment.bottomLeft,
-              child: Positioned(
-                child: Stack(
-                  children: <Widget>[
-                    ClipOval(
-                      child: Container(
-                        //color: Color.fromARGB(180, 82, 84, 92),
-                        width: 33,
-                        height: 33,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(180, 82, 84, 92),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              blurRadius: 3,
-                              offset:
-                                  Offset(5, 5), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: CircularProgressIndicator(
-                          strokeWidth: 5,
-                          value: filmData.voteAverage * 0.1,
-                          //ler da api
-                          backgroundColor: Colors.blueGrey[300],
-                          valueColor: getScoreColor(filmData.voteAverage),
-                          //AlwaysStoppedAnimation<Color>(Colors.pink[400]),
+              child: Positioned.fill(
+                child: Align(
+                  alignment: Alignment(-0.7, 1.1),
+                  child: Stack(
+                    children: <Widget>[
+                      ClipOval(
+                        child: Container(
+                          width: 33,
+                          height: 33,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(180, 82, 84, 92),
+                          ),
+                          child: CircularProgressIndicator(
+                            strokeWidth: 5,
+                            value: filmData.voteAverage * 0.1,
+                            //ler da api
+                            backgroundColor: Colors.blueGrey[300],
+                            valueColor: getScoreColor(filmData.voteAverage),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                        child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 5, vertical: 8),
-                      child: Text(
-                        filmData.voteAverage.toDouble().toString(),
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0),
-                      ),
-                      //ler da api
-                    )),
-                  ],
+                      Container(
+                          child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 8),
+                        child: Text(
+                          filmData.voteAverage.toDouble().toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0),
+                        ),
+                        //ler da api
+                      )),
+                    ],
+                  ),
                 ),
 
                 // Image.asset(
@@ -111,6 +102,7 @@ class FilmInformationBox extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
+                    color: Colors.white,
                   )),
             ),
             SizedBox(height: 5),
@@ -118,7 +110,10 @@ class FilmInformationBox extends StatelessWidget {
                 width: 130,
                 child: Text(
                   filmData.releaseDate,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
                 )),
           ],
         ),
@@ -128,16 +123,16 @@ class FilmInformationBox extends StatelessWidget {
 }
 
 Animation<Color> getScoreColor(num score) {
-  //score = 10;
   return AlwaysStoppedAnimation<Color>(
       HSVColor.fromAHSV(1, (score * 10.0) + 10, 1, 0.75).toColor());
 }
 
 class InformationMenuBox extends StatelessWidget {
-  final FilmData filmData;
-  
+  final FilmModel filmData;
+
   const InformationMenuBox({
-    Key key, this.filmData,
+    Key key,
+    this.filmData,
   }) : super(key: key);
 
   @override
@@ -175,7 +170,9 @@ class InformationMenuBox extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailsPage(filmData: filmData,)));
+                                builder: (context) => DetailsPage(
+                                      filmData: filmData,
+                                    )));
                       } else if (choice == Constants.FirstItem) {
                         print('salva filme na lista de favoritos');
                       }

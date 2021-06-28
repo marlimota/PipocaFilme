@@ -2,9 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:filmes_app/core/error/exceptions.dart';
 import 'package:filmes_app/core/error/failure.dart';
 import 'package:filmes_app/core/platform/network_info.dart';
-//import 'package:filmes_app/features/data/datasources/films_local_data_source.dart';
 import 'package:filmes_app/features/data/datasources/films_remote_data_source.dart';
-import 'package:filmes_app/features/domain/entities/page_data.dart';
+import 'package:filmes_app/features/data/models/films_model.dart';
 import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 
 //typedef Future<List<FilmData>> _PopularOrRelease();
@@ -17,7 +16,7 @@ class FilmsRepositoryImpl implements MovieRepository {
   FilmsRepositoryImpl({this.remoteDataSource, this.networkInfo});
 
   @override
-  Future<Either<Failure, List<FilmData>>> getPopularFilmList() async {
+  Future<Either<Failure, List<FilmModel>>> getPopularFilmList() async {
     if (await networkInfo.isConnected) {
       try {
         final remoteData = await remoteDataSource.getPopularFilmList();
@@ -31,7 +30,7 @@ class FilmsRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<Either<Failure, List<FilmData>>> getReleaseFilmList() async {
+  Future<Either<Failure, List<FilmModel>>> getReleaseFilmList() async {
     if (await networkInfo.isConnected) {
       try {
         final remoteData = await remoteDataSource.getReleaseFilmList();

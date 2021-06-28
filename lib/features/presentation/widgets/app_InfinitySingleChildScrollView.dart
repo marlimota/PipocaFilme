@@ -60,8 +60,10 @@ class _InfinitySingleChildScrollViewState
 
   void animateToStart() async {
     await Future.delayed(Duration(seconds: 0));
-    _scrollController.animateTo(0,
-        duration: Duration(milliseconds: 5000), curve: Curves.ease);
+    // ignore: invalid_use_of_protected_member
+    if (_scrollController.positions.isNotEmpty) {
+      _scrollController.animateTo(0,duration: Duration(milliseconds: 5000), curve: Curves.ease);
+    }
   }
 
   @override

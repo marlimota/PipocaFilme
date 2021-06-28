@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:filmes_app/features/domain/entities/film_data.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../features/domain/entities/page_data.dart';

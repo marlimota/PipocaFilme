@@ -1,7 +1,7 @@
+import 'package:filmes_app/features/data/models/films_model.dart';
 import 'package:filmes_app/features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
 import 'package:filmes_app/features/presentation/bloc/bloc_release/film_release_bloc.dart';
 import 'package:filmes_app/features/presentation/widgets/film_list_container.dart';
-import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../injection_container.dart';
@@ -22,8 +22,11 @@ class _HomePageState extends State<HomePage> {
       // Barra superior
       appBar: AppBar(
         title: Text('PipocaFilme'),
-        actions: [
-          CustomSwitch(),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search_sharp),
+            onPressed: () {},
+          ),
         ],
       ),
       //todo o corpo do aplicativo - conteúdo
@@ -70,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   return buildLoading();
                 } else if (state is FilmPopularLoaded) {
                   return buildLoaded(state.filmList);
-                } else { 
+                } else {
                   return buildLoading();
                 }
               }),
@@ -132,7 +135,7 @@ Widget buildLoading() {
   );
 }
 
-Widget buildLoaded(List<FilmData> filmList) {
+Widget buildLoaded(List<FilmModel> filmList) {
   //objeto - cria um novo card de filme com as informações passadas
   return FilmListContainer(filmList: filmList);
 }
