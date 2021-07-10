@@ -3,14 +3,11 @@ import 'package:filmes_app/core/error/exceptions.dart';
 import 'package:filmes_app/core/error/failure.dart';
 import 'package:filmes_app/core/platform/network_info.dart';
 import 'package:filmes_app/features/data/datasources/films_remote_data_source.dart';
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 
-//typedef Future<List<FilmData>> _PopularOrRelease();
-
-class FilmsRepositoryImpl implements MovieRepository {
+class FilmsRepositoryImpl implements FilmRepository {
   final FilmsRemoteDataSource remoteDataSource;
-  //final FilmLocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
   FilmsRepositoryImpl({this.remoteDataSource, this.networkInfo});

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:filmes_app/core/error/exceptions.dart';
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/core/utils/api_keys.dart';
+import 'package:filmes_app/features/data/datasources/endpoints/FilmsEndPoints.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,7 +20,7 @@ class FilmsRemoteDataSourceImpl implements FilmsRemoteDataSource {
   Future<List<FilmModel>> getPopularFilmList() async {
     final response = await client.get(
       Uri.parse(
-          'https://api.themoviedb.org/3/movie/popular?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1'),
+          FilmEndpoints.linkApiPopular(ApiKeys.apiKey)),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -35,7 +37,7 @@ class FilmsRemoteDataSourceImpl implements FilmsRemoteDataSource {
   Future<List<FilmModel>> getReleaseFilmList() async {
     final response = await client.get(
       Uri.parse(
-          'https://api.themoviedb.org/3/movie/now_playing?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1'),
+          FilmEndpoints.linkApiRelease(ApiKeys.apiKey)),
       headers: {'Content-Type': 'application/json'},
     );
 

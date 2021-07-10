@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:filmes_app/features/domain/entities/film_data.dart';
+import 'package:filmes_app/features/domain/entities/film_data_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../features/domain/entities/page_data.dart';
@@ -11,13 +11,13 @@ class FilmListTest extends StatefulWidget {
 }
 
 class _FilmListTestState extends State<FilmListTest> {
-  List<FilmData> filmList; //lista do tipo filmData
+  List<FilmDataEntity> filmList; //lista do tipo filmData
   // final Uri url1 = Uri.parse(
   //     'https://api.themoviedb.org/3/movie/popular?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1');
   final Uri url = Uri.parse(
       'https://api.themoviedb.org/3/movie/now_playing?api_key=aacc29faa6584fd592f31ad4e495babf&language=en-US&page=1');
 
-  Future<List<FilmData>> getFilmsData() async {
+  Future<List<FilmDataEntity>> getFilmsData() async {
     try {
       //cria a variavel response, faz a solicitação da url, recebe os dados e armazena na variavel response
       final response = await http.get(url);

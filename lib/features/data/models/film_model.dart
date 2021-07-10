@@ -1,9 +1,9 @@
-import 'package:filmes_app/features/domain/entities/film_data.dart';
+import 'package:filmes_app/features/domain/entities/film_data_entity.dart';
 
-class FilmModel extends FilmData {
+class FilmModel extends FilmDataEntity {
   FilmModel({
     bool adult,
-    String backdropPath,
+    String backdropPath, 
     List<int> genreIds,
     int id,
     String originalLanguage,
@@ -35,7 +35,9 @@ class FilmModel extends FilmData {
   factory FilmModel.fromJson(Map<String, dynamic> json) {
     return FilmModel(
       adult: json['adult'],
-      backdropPath: json['backdrop_path'],
+      backdropPath: json['backdrop_path'] != null
+          ? "https://www.themoviedb.org/t/p/original" + json['backdrop_path']
+          : 'https://www.themoviedb.org/t/p/original/c7dFSqZQYqNNJVpacpIGZe3gkLW.jpg',
       genreIds: json['genre_ids'].cast<int>(),
       id: json['id'],
       originalLanguage: json['original_language'],

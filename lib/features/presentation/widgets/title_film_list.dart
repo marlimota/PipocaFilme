@@ -17,14 +17,14 @@ class TitleFilmList extends StatelessWidget {
           text,
           textAlign: TextAlign.start,
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
             shadows: [
               Shadow(
                 blurRadius: 10.0,
                 color: Colors.yellow[400],
-                offset: Offset(0.0, 2.0),
+                //offset: Offset(2.0, 2.0),
               ),
             ],
           ),

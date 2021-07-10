@@ -42,6 +42,7 @@ dependencies:
   shared_preferences: ^0.5.3+4
   internet_connection_checker: ^0.0.1+1
   youtube_player_flutter: ^8.0.0
+  flutter_rating_bar: ^4.0.0
   
   
 

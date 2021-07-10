@@ -18,7 +18,7 @@ class FilmPopularLoading extends FilmPopularState {
 
 //Estado de carregamento concluído - leitura concluída
 class FilmPopularLoaded extends FilmPopularState {
-  final List<FilmModel> filmList;
+  final List<FilmDataEntity> filmList;
 
   FilmPopularLoaded({this.filmList}) : super([filmList]);
 

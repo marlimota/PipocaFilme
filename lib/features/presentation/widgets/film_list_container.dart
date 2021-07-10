@@ -1,4 +1,4 @@
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:flutter/material.dart';
 import 'film_information_box.dart';
 

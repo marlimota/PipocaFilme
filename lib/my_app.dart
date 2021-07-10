@@ -7,17 +7,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-        return MaterialApp(
-          title: 'PipocaFilme',
-          theme: ThemeData(
-            primaryColor: Colors.red[900],
-          ),
-          initialRoute: '/',
-          routes: {
-            '/': (context) => LoginPage(),
-            '/home': (context) => HomePage(),
-            '/details': (context) => DetailsPage(),
-          },
-        );
+    return MaterialApp(
+      title: 'PipocaFilme',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+        '/details': (context) => DetailsPage(),
+      },
+    );
   }
 }

@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
-                      color: Color.fromARGB(240, 243,237,237)),
+                      color: Color.fromARGB(240, 250,243,243)),
                   padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
@@ -92,9 +92,6 @@ class _LoginPageState extends State<LoginPage> {
                 fit: BoxFit.cover,
               ),
             ),
-            // height: MediaQuery.of(context).size.height,
-            // child: Image.asset('assets/images/TelaDeLogin.png'),
-            //fit: BoxFit.cover,
           ),
           _body(),
         ],

@@ -3,12 +3,11 @@ import 'package:filmes_app/core/platform/network_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
-//import 'features/data/datasources/films_local_data_source.dart';
 import 'features/data/datasources/films_remote_data_source.dart';
 import 'features/data/repositories/films_repository_impl.dart';
 import 'features/domain/repositories/films_repository.dart';
-import 'features/domain/usecases/get_popular_film_list.dart';
-import 'features/domain/usecases/get_release_film_list.dart';
+import 'features/domain/usecases/get_popular_film_list_usecase.dart';
+import 'features/domain/usecases/get_release_film_list_usecase.dart';
 import 'features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
 import 'features/presentation/bloc/bloc_release/film_release_bloc.dart';
 
@@ -28,10 +27,10 @@ Future<void> init() async {
     ),
   );
 // Use cases
-  sl.registerLazySingleton(() => GetPopularFilmList(sl()));
-  sl.registerLazySingleton(() => GetReleaseFilmList(sl()));
+  sl.registerLazySingleton(() => GetPopularFilmListUsecase(sl()));
+  sl.registerLazySingleton(() => GetReleaseFilmListUsecase(sl()));
 // Repository
-  sl.registerLazySingleton<MovieRepository>(
+  sl.registerLazySingleton<FilmRepository>(
     () => FilmsRepositoryImpl(
       remoteDataSource: sl(),
       //localDataSource: sl(),

@@ -1,9 +1,9 @@
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:filmes_app/features/presentation/pages/details_page.dart';
 import 'package:filmes_app/features/presentation/widgets/app_InfinitySingleChildScrollView.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
- 
+
 //coluna de cada filme
 class FilmInformationBox extends StatelessWidget {
   final FilmModel filmData;
@@ -24,7 +24,7 @@ class FilmInformationBox extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.0),
                 color: Colors.transparent,
                 image: DecorationImage(
-                    image: NetworkImage(filmData.posterPath), 
+                    image: NetworkImage(filmData.posterPath),
                     fit: BoxFit.cover),
                 boxShadow: [
                   BoxShadow(
@@ -38,8 +38,8 @@ class FilmInformationBox extends StatelessWidget {
             Container(
               child: Positioned.fill(
                 child: Align(
-                  alignment: Alignment(0.8,-1.0),
-                  child: InformationMenuBox(),
+                  alignment: Alignment(0.8, -1.0),
+                  child: InformationMenuBox(filmData: filmData),
                 ),
               ),
             ),
@@ -153,7 +153,7 @@ class InformationMenuBox extends StatelessWidget {
                 children: [
                   Icon(
                     choice.item1,
-                    color: Color.fromARGB(180, 189, 185, 185),
+                    color: Color.fromARGB(180, 235, 237, 238),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -163,7 +163,7 @@ class InformationMenuBox extends StatelessWidget {
                     child: Text(
                       choice.item2,
                       style:
-                          TextStyle(color: Color.fromARGB(180, 189, 185, 185)),
+                          TextStyle(color: Color.fromARGB(180, 235, 237, 238)),
                     ),
                     onPressed: () {
                       if (choice == Constants.SecondItem) {

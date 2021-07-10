@@ -1,5 +1,5 @@
 //classe com informações da página de lista de filmes da api
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 
 class PageData {
   int page;

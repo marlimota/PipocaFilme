@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:http/http.dart' as http;
   

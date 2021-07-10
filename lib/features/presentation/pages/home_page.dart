@@ -1,11 +1,11 @@
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/data/models/film_model.dart';
 import 'package:filmes_app/features/presentation/bloc/bloc_popular/film_popular_bloc.dart';
 import 'package:filmes_app/features/presentation/bloc/bloc_release/film_release_bloc.dart';
+import 'package:filmes_app/features/presentation/pages/login_page.dart';
 import 'package:filmes_app/features/presentation/widgets/film_list_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../injection_container.dart';
-import '../widgets/layouts_page.dart';
 import '../widgets/title_film_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,16 +18,52 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //Barra Lateral
-      drawer: Drawer(child: DrawerHome()),
+      //drawer: Drawer(child: DrawerHome()),
+      //Barra inferior
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        backgroundColor: Color.fromARGB(230, 199, 19, 19),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            //activeIcon: HomePage(),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Salvos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Marli',
+          ),
+        ],
+      ),
       // Barra superior
       appBar: AppBar(
         title: Text('PipocaFilme'),
-        actions: <Widget>[
+        centerTitle: true,
+        actions: [
           IconButton(
-            icon: Icon(Icons.search_sharp),
-            onPressed: () {},
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
+            },
           ),
         ],
+        backgroundColor: Color.fromARGB(255, 177, 1, 1),
+        elevation: 10,
+        textTheme: TextTheme(
+          headline6: TextStyle(
+            // headline6 is used for setting title's theme
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        shadowColor: Colors.amber[50],
       ),
       //todo o corpo do aplicativo - conteúdo
       body: Container(
@@ -41,13 +77,11 @@ class _HomePageState extends State<HomePage> {
         //contéudo - duas listas horizontais e seus respectivos títulos
         child: ListView(
           children: [
-            SizedBox(height: 8),
+            //SizedBox(height: 8),
             //titulo da lista de filmes - populares
             TitleFilmList('Os Mais Populares'),
             //Define o que será feito de acordo com o estado ou mudança de estado
             BlocProvider(
-              //Definição é feita de acordo com o Popular Cubit pois existe mais de um cubit
-              //cria uma instancia do cubit que gerencia a lista de filmes populares
               create: (_) => sl<FilmPopularBloc>(),
               //bloc consumer:possui opções de listener(apenas notifica caso aconteça mudança de estado) e builder(constrói com a mudança de estado) no mesmo Widget
               child: BlocConsumer<FilmPopularBloc, FilmPopularState>(
@@ -78,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 }
               }),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 6),
             //Título da outra lista de filmes - lançamentos
             TitleFilmList('Lançamentos'),
             //objeto - cria um novo card de filme com as informações passadas

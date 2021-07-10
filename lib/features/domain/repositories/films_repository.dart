@@ -1,10 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:filmes_app/core/error/failure.dart';
-import 'package:filmes_app/features/data/models/films_model.dart';
+import 'package:filmes_app/features/domain/entities/film_data_entity.dart';
 
-abstract class MovieRepository {
-  //final moviesApiProvider = MoviesApiProvider();
- Future<Either<Failure, List<FilmModel>>> getPopularFilmList();
- Future<Either<Failure, List<FilmModel>>> getReleaseFilmList();
+abstract class FilmRepository {
+  Future<Either<Failure, List<FilmDataEntity>>> getPopularFilmList();
+  Future<Either<Failure, List<FilmDataEntity>>> getReleaseFilmList();
 }
-
