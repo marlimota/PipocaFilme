@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'film_information_box.dart';
 
 class FilmListContainer extends StatelessWidget {
-  final List<FilmData> filmList;
+  final List<MovieData> filmList;
 
   const FilmListContainer({Key key, this.filmList}) : super(key: key);
 
-  @override 
+  @override
   Widget build(BuildContext context) {
-    return Container( 
+    return Container(
       //width: 12,
       height: 280,
       //padding: EdgeInsets.symmetric(horizontal: 7.0),

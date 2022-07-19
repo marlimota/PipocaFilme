@@ -4,13 +4,13 @@ import 'package:filmes_app/core/usecases/usecase.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:filmes_app/features/domain/repositories/films_repository.dart';
 
-class GetReleaseFilmList implements UseCase<List<FilmData>, NoParams> {
+class GetReleaseMovieListUsecase implements UseCase<List<MovieData>, NoParams> {
   final MovieRepository repository;
 
-  GetReleaseFilmList(this.repository);
+  GetReleaseMovieListUsecase(this.repository);
 
   @override
-  Future<Either<Failure, List<FilmData>>> call(NoParams params) async {
-    return await repository.getReleaseFilmList();
+  Future<Either<Failure, List<MovieData>>> call() async {
+    return await repository.getReleaseMovieList();
   }
 }

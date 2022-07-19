@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:filmes_app/core/error/failure.dart';
-import 'package:filmes_app/core/usecases/usecase.dart';
 import 'package:filmes_app/features/domain/entities/page_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:filmes_app/features/domain/usecases/get_release_film_list.dart';
@@ -19,7 +18,7 @@ const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
 
 class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {
-  final GetReleaseFilmList getReleaseFilmList;
+  final GetReleaseMovieListUsecase getReleaseFilmList;
 
   FilmReleaseBloc({this.getReleaseFilmList}) : super(FilmReleaseInitial());
 
@@ -27,7 +26,7 @@ class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {
   Stream<FilmReleaseState> mapEventToState(FilmReleaseEvent event) async* {
     if (event is FetchReleaseFilmsData) {
       yield FilmReleaseLoading();
-      final failureOrData = await getReleaseFilmList(NoParams());
+      final failureOrData = await getReleaseFilmList();
       yield* _eitherLoadedOrErrorState(failureOrData);
     }
   }
@@ -54,7 +53,7 @@ class FilmReleaseBloc extends Bloc<FilmReleaseEvent, FilmReleaseState> {
 }
 
 Stream<FilmReleaseState> _eitherLoadedOrErrorState(
-  Either<Failure, List<FilmData>> either,
+  Either<Failure, List<MovieData>> either,
 ) async* {
   yield either.fold(
     (failure) => FilmReleaseError(message: _mapFailureToMessage(failure)),

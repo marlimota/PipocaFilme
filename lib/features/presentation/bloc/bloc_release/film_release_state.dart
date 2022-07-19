@@ -14,7 +14,7 @@ class FilmReleaseLoading extends FilmReleaseState {}
 
 //Estado de carregamento concluído - leitura concluída
 class FilmReleaseLoaded extends FilmReleaseState {
-  final List<FilmData> filmList;
+  final List<MovieData> filmList;
 
   FilmReleaseLoaded({this.filmList});
 

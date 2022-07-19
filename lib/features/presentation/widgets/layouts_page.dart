@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:filmes_app/app_controller.dart';
 
@@ -24,11 +22,11 @@ class DrawerHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/bc_home.png"),
-            fit: BoxFit.cover,
-          ),
+        image: DecorationImage(
+          image: AssetImage("assets/images/bc_home.png"),
+          fit: BoxFit.cover,
         ),
+      ),
       child: Column(
         children: [
           UserAccountsDrawerHeader(
@@ -40,23 +38,32 @@ class DrawerHome extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.home, color: Colors.teal),
-            title: Text('Inicio', style: TextStyle(color: Colors.teal[600]),),
+            title: Text(
+              'Inicio',
+              style: TextStyle(color: Colors.teal[600]),
+            ),
             subtitle: Text('Página inicial'),
             onTap: () {
               print('Home');
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite,color: Colors.teal),
-            title: Text('Favoritos', style: TextStyle(color: Colors.teal[600]),),
+            leading: Icon(Icons.favorite, color: Colors.teal),
+            title: Text(
+              'Favoritos',
+              style: TextStyle(color: Colors.teal[600]),
+            ),
             subtitle: Text('Filmes salvos'),
             onTap: () {
               print('Home');
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout,color: Colors.teal),
-            title: Text('Sair', style: TextStyle(color: Colors.teal[600]),),
+            leading: Icon(Icons.logout, color: Colors.teal),
+            title: Text(
+              'Sair',
+              style: TextStyle(color: Colors.teal[600]),
+            ),
             subtitle: Text('Encerrar sessão'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');

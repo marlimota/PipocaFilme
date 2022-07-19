@@ -1,22 +1,20 @@
 part of 'film_popular_bloc.dart';
 
 @immutable
-abstract class FilmPopularState extends Equatable{
+abstract class FilmPopularState extends Equatable {
   FilmPopularState([List props = const <dynamic>[]]) : super(props);
-} 
+}
 
 //Estado inicial, quando o usuário não executou nenhuma ação e deve-se ter uma interface inicial
-class FilmPopularInitial extends FilmPopularState {
-}
+class FilmPopularInitial extends FilmPopularState {}
 
 //Estado de carregamento - mostra uma progress bar - enquanto os filmes carregam, ou seja, a pi é lida
 //retorna sucesso ou erro, caso a leitura não seja concluída
-class FilmPopularLoading extends FilmPopularState {
-}
+class FilmPopularLoading extends FilmPopularState {}
 
 //Estado de carregamento concluído - leitura concluída
 class FilmPopularLoaded extends FilmPopularState {
-  final List<FilmData> filmList;
+  final List<MovieData> filmList;
 
   FilmPopularLoaded({this.filmList}) : super([filmList]);
 
@@ -50,5 +48,5 @@ class FilmPopularError extends FilmPopularState {
   // }
 
   // @override
-  // int get hashCode => message.hashCode; 
+  // int get hashCode => message.hashCode;
 }

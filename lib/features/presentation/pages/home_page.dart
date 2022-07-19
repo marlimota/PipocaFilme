@@ -131,7 +131,7 @@ Widget buildLoading() {
   );
 }
 
-Widget buildLoaded(List<FilmData> filmList) {
+Widget buildLoaded(List<MovieData> filmList) {
   //objeto - cria um novo card de filme com as informações passadas
   return FilmListContainer(filmList: filmList);
 }

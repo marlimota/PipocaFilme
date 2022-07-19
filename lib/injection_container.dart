@@ -28,8 +28,8 @@ Future<void> init() async {
     ),
   );
 // Use cases
-  sl.registerLazySingleton(() => GetPopularFilmList(sl()));
-  sl.registerLazySingleton(() => GetReleaseFilmList(sl()));
+  sl.registerLazySingleton(() => GetPopularMovieListUsecase(sl()));
+  sl.registerLazySingleton(() => GetReleaseMovieListUsecase(sl()));
 // Repository
   sl.registerLazySingleton<MovieRepository>(
     () => FilmsRepositoryImpl(
@@ -39,8 +39,8 @@ Future<void> init() async {
     ),
   );
 // Data sources
-  sl.registerLazySingleton<FilmsRemoteDataSource>(
-    () => FilmsRemoteDataSourceImpl(client: sl()),
+  sl.registerLazySingleton<MovieRemoteDataSource>(
+    () => MovieRemoteDataSourceImpl(client: sl()),
   );
   // sl.registerLazySingleton<FilmLocalDataSource>(
   //   () => FilmLocalDataSourceImpl(sharedPreferences: sl()),
